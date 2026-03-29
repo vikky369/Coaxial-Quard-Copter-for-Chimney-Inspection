@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'offboard_takeoff = px4_offboard_control.offboard_control:main',
+            'offboard_control = px4_offboard_control.offboard_control:main',
+            'offboard_takeoff = px4_offboard_control.offboard_takeoff:main',
         ],
     },
 )
