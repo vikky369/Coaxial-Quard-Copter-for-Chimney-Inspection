@@ -1,0 +1,6 @@
+# Camera bridge configuration for omni2 model
+- ros_topic_name: "/camera"
+  gz_topic_name: "/camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
