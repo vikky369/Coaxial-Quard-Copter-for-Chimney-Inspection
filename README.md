@@ -294,7 +294,7 @@ Drone movement
 
 # 👨‍💻 Author
 
-Gopi Krishnan
+Palanisamy
 AI + Robotics Enthusiast 🚀
 
 ---
