@@ -1,0 +1,37 @@
+# Joystick Teleop Configuration
+# This file defines the mapping between joystick inputs and drone control
+
+# Device configuration
+joystick:
+  device: '/dev/input/js0'  # Linux joystick device (change js0 to js1, js2 etc. if needed)
+  deadzone: 0.05            # Ignore small stick movements below this threshold
+  autorepeat_rate: 20.0     # Hz - how often to send commands
+
+# Velocity limits
+velocity:
+  max_xy: 5.0       # Max forward/sideways velocity in m/s
+  max_z: 2.0        # Max vertical velocity in m/s
+  max_yaw_rate: 1.57  # Max yaw rate in rad/s (1.57 = ~90 deg/s)
+
+# Joystick axis mapping (for standard Xbox/PS4 gamepad)
+# PS4: 0=LStick_X, 1=LStick_Y, 2=L2_Trigger, 3=RStick_X, 4=RStick_Y, 5=R2_Trigger
+# Xbox: 0=LStick_X, 1=LStick_Y, 2=LT_axis, 3=RStick_X, 4=RStick_Y, 5=RT_axis
+axes:
+  forward_backward: 1       # Left stick Y (negative = forward, positive = backward)
+  left_right: 0             # Left stick X (negative = left, positive = right)
+  up_down: 4                # Right stick Y (negative = up, positive = down)
+  yaw_rotaton: 3            # Right stick X (negative = CCW, positive = CW)
+
+# Button mapping
+# 0=A/Cross, 1=B/Circle, 2=X/Square, 3=Y/Triangle, 4=LB/L1, 5=RB/R1, 6=Back, 7=Start
+buttons:
+  arm: 0              # A/Cross button - ARM drone
+  disarm: 1           # B/Circle button - DISARM drone
+  offboard_toggle: 2  # X/Square button - Toggle OFFBOARD mode
+  land: 3             # Y/Triangle button - LAND drone
+  emergency_stop: 9   # Start button - Emergency stop (optional)
+
+# Control modes
+control:
+  default_mode: 'velocity'  # velocity or position
+  frame: 'body'             # body or world (body-relative or world-relative control)

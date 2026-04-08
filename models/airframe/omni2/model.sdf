@@ -180,6 +180,70 @@
       </sensor>
     </link>
 
+    <joint name='lidar_joint' type='fixed'>
+      <pose relative_to='base_link'>0 0 0.25 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>lidar_link</child>
+    </joint>
+
+    <link name='lidar_link'>
+      <pose relative_to='lidar_joint'>0 0 0 0 0 0</pose>
+      <visual name='lidar_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.025</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0 1 0 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="lidar_sensor" type="ray">
+        <gz_frame_id>lidar_link</gz_frame_id>
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>true</visualize>
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <min_angle>-3.14</min_angle>
+              <max_angle>3.14</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.2</min>
+            <max>10</max>
+          </range>
+        </ray>
+        <!-- <topic>/lidar</topic> -->
+      </sensor>
+    </link>
+
+    <joint name='lidar_mount_joint' type='fixed'>
+      <pose relative_to='base_link'>0 0 0.18 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>lidar_mount_link</child>
+    </joint>
+
+    <link name='lidar_mount_link'>
+      <pose relative_to='lidar_mount_joint'>0 0 0 0 0 0</pose>
+      <visual name='mount_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.12</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+
     <joint name='rotor_joint_1' type='revolute'>
       <pose relative_to='base_link'>-0.19993 0.20000000000000001 0.17169000000000001 0 0 0</pose>
       <parent>base_link</parent>
@@ -474,7 +538,7 @@
           <ixy>-2.1755000000000001e-07</ixy>
           <ixz>3.3004999999999999e-12</ixz>
           <iyy>1.4344e-05</iyy>
-          <iyz>6.8579999999999997e-14</iyz>
+          <iyz>6.8579999999999997e-14</iyz>                                                                                                                                                                                                                                                                                                                                                         
           <izz>1.4395e-05</izz>
         </inertia>
       </inertial>

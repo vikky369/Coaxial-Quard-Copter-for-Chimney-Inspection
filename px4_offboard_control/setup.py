@@ -10,14 +10,18 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', ['launch/camera_bridge.launch.py']),
+        ('share/' + package_name + '/launch', [
+            'launch/camera_bridge.launch.py',
+            'launch/teleop.launch.py',
+            'launch/teleop_with_bridge.launch.py',
+        ]),
         ('share/' + package_name + '/config', ['config/ros_gz_bridge.yaml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='pdc',
+    maintainer='palanisamy',
     maintainer_email='kit.23.19bme053@gmail.com',
-    description='TODO: Package description',
+    description='PX4 offboard control with teleop support for drone operations',
     license='TODO: License declaration',
     extras_require={
         'test': [
@@ -28,6 +32,7 @@ setup(
         'console_scripts': [
             'offboard_control = px4_offboard_control.offboard_control:main',
             'offboard_takeoff = px4_offboard_control.offboard_takeoff:main',
+            'teleop_control = px4_offboard_control.teleop_control:main',
         ],
     },
 )
