@@ -10,12 +10,13 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', [
-            'launch/camera_bridge.launch.py',
-            'launch/teleop.launch.py',
-            'launch/teleop_with_bridge.launch.py',
-        ]),
-        ('share/' + package_name + '/config', ['config/ros_gz_bridge.yaml']),
+        # ('share/' + package_name + '/launch', [
+        #     'launch/offboard_control.launch.py',
+        #     'launch/camera_bridge.launch.py',
+        #     'launch/teleop.launch.py',
+        #     'launch/teleop_with_bridge.launch.py',
+        # ]),
+        # ('share/' + package_name + '/config', ['config/ros_gz_bridge.yaml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -30,9 +31,10 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'offboard_control = px4_offboard_control.offboard_control:main',
-            'offboard_takeoff = px4_offboard_control.offboard_takeoff:main',
-            'teleop_control = px4_offboard_control.teleop_control:main',
+            'offboard_control = px4_offboard_control.velocity_control:main',
+            'offboard_takeoff = px4_offboard_control.velocity_control:main',
+            'teleop_control = px4_offboard_control.control:main',
+            'joy_to_px4 = px4_offboard_control.joy_to_px4:main',
         ],
     },
 )

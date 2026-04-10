@@ -1,0 +1,6 @@
+yolo_node:
+  ros__parameters:
+
+    model_path: "yolov8n.pt"
+    image_topic: "/camera"
+    view_image: true
